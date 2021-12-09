@@ -1,0 +1,89 @@
+.chat {
+  display: flex;
+  height: 80vh;
+  max-width: 70vw;
+  margin-left: 15vw;
+  margin-top: 5vh;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+}
+
+.chat__leftBox {
+  width: 350px;
+  /* background-color: rgb(245, 128, 128); */
+}
+
+.chat__leftBoxUp {
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.chat__leftBoxUp,
+.chat__rightBoxUp {
+  height: 60px;
+  background-color: white;
+  position: relative;
+}
+
+.chat__leftBox h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.chat__leftBoxDown {
+  height: calc(80vh - 60px);
+  overflow: scroll;
+}
+
+.chat__rightBox {
+  flex: 1;
+}
+
+.chat__rightBoxUp {
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.chat__friendProfile {
+  width: 90%;
+  display: flex;
+  overflow: hidden;
+}
+.chat__rightBoxUp .chat__friendProfileImg {
+  margin-top: 15px;
+  height: 30px;
+  width: 30px;
+}
+
+.chat__friendProfileName {
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.chat__friendProfileName p {
+  font-size: 13px;
+}
+
+.chat__rightBoxMid {
+  height: calc(80vh - 60px - 70px);
+  overflow-y: scroll;
+}
+
+.chat__rightBoxDown {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat__messageBox {
+  width: 90%;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid lightgray;
+  padding: 10px 30px;
+}

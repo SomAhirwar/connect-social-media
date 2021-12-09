@@ -1,0 +1,19 @@
+.message {
+  display: flex;
+}
+
+.message__text {
+  padding: 10px 20px;
+  max-width: 350px;
+  border-radius: 20px;
+  border: 1px solid lightgray;
+  margin: 10px;
+}
+
+.message__user {
+  justify-content: flex-end;
+}
+
+.message__user .message__text {
+  background-color: lightgray;
+}

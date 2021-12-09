@@ -1,0 +1,28 @@
+.comment {
+  background-color: rgba(211, 211, 211, 0.452);
+  padding: 10px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  color: rgb(0, 0, 0);
+  margin: 5px 0 10px 0;
+}
+
+.comment__user {
+  display: flex;
+}
+
+.comment .comment__avatar {
+  width: 25px;
+  height: 25px;
+  margin-right: 7px;
+}
+
+.comment__username {
+  font-size: 14px;
+}
+
+.comment__body {
+  margin-top: 3px;
+  font-size: 12px;
+}

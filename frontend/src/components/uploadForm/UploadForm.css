@@ -1,0 +1,20 @@
+.uploadForm {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  padding: 20px;
+  display: none;
+}
+
+.uploadForm__label {
+  display: flex;
+  flex-direction: column;
+  padding: 2px 5px;
+  margin-top: 5px;
+}
+
+.uploadForm__button {
+  margin-top: 10px;
+}

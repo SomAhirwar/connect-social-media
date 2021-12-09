@@ -1,0 +1,102 @@
+.app .profile {
+  max-width: 975px;
+  margin: 0 auto;
+  padding: 20px;
+  /* background-color: #fafafa; */
+}
+
+/* .profile * {
+  background-color: #fafafa;
+} */
+
+.profile__header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+}
+
+.profile__headerImgBox {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.profile__headerImgBox .profile__headerImg {
+  width: 150px;
+  height: 150px;
+}
+
+.profile__headerInfoBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.profile__headerInfo span {
+  margin-right: 15px;
+}
+
+.profile__posts::before {
+  display: block;
+  content: " ";
+  margin-bottom: 30px;
+  border-bottom: 1px solid lightgray;
+}
+
+.profile__posts::after {
+  display: table;
+  content: " ";
+  clear: both;
+}
+
+.profile__postsImgContainer {
+  width: 30%;
+  position: relative;
+  margin-bottom: 28px;
+  float: left;
+}
+
+.profile__postsImgContainer::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.profile__postsImgContainer:not(:nth-of-type(3n)) {
+  margin-right: 5%;
+}
+
+.profile__postsImg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  display: inline-block;
+}
+
+.profile__usenameBox {
+  display: flex;
+}
+
+.profile__headerFollowBtn {
+  margin-left: 20px;
+  background-color: #0095f6;
+  color: white;
+  display: inline-block;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.profile__headerEditBtn {
+  margin-left: 20px;
+  color: black;
+  font-weight: 700;
+  display: inline-block;
+  border: 1px solid lightgray;
+  border-radius: 2px;
+  padding: 5px 10px;
+  cursor: pointer;
+}

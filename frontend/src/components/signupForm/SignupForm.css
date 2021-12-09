@@ -1,0 +1,81 @@
+.authentication-box {
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 45px;
+  border: 2px solid black;
+  box-shadow: 0 2px 5px black;
+}
+.auth {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.auth > * {
+  width: 100%;
+}
+
+.auth__image-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.auth-form__image {
+  font-size: 2em;
+  width: 150px;
+}
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 45px;
+}
+
+.auth__form > * {
+  margin-bottom: 10px;
+}
+
+.auth__label {
+  display: flex;
+  flex-direction: column;
+  padding: 2px 5px;
+  border: none;
+  background-color: black;
+}
+
+.auth__label span {
+  color: grey;
+  font-size: 12px;
+}
+
+.auth__input {
+  border-color: transparent;
+  outline: none;
+  line-height: 18px;
+  height: 20px;
+}
+
+.auth__submit {
+  border: none;
+  color: black;
+  font-size: 18px;
+  background-color: #bdbdbd;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.signup {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid black;
+  color: rgb(136, 136, 136);
+}
+
+.signup a {
+  text-decoration: none;
+  color: #bdbdbd;
+  font-weight: 700;
+}
