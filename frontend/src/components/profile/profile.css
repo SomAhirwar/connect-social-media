@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 20px;
   /* background-color: #fafafa; */
+  color: rgb(228, 228, 228);
 }
 
 /* .profile * {
@@ -98,5 +99,9 @@
   border: 1px solid lightgray;
   border-radius: 2px;
   padding: 5px 10px;
+  cursor: pointer;
+}
+
+.profile__followerFollowingBtn {
   cursor: pointer;
 }

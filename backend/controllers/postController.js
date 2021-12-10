@@ -48,8 +48,20 @@ exports.getAllUserPost = async (req, res, next) => {
   try {
     const username = req.params.username;
     // console.log({ username });
-    const user = await User.findOne({ username });
+    let user = await User.findOne({ username });
     if (!user) throw new Error("User not found");
+
+    user = await user
+      .populate({
+        path: "following",
+        select: "_id username profileImg",
+      })
+      .populate({
+        path: "followers",
+        select: "_id username profileImg",
+      })
+      .execPopulate();
+
     const posts = await Posts.find({ user: user._id });
 
     res.status(200).json({

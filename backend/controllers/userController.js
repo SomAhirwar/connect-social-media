@@ -2,43 +2,6 @@ const User = require("../models/userModel");
 const mongoose = require("mongoose");
 
 const getPopulatedUser = async (id) => {
-  // const userAgg = await User.aggregate([
-  //   { $match: { _id: id } },
-  //   {
-  //     $lookup: {
-  //       from: "users",
-  //       localField: "followers",
-  //       foreignField: "_id",
-  //       as: "followers",
-  //     },
-  //   },
-  //   {
-  //     $lookup: {
-  //       from: "users",
-  //       localField: "following",
-  //       foreignField: "_id",
-  //       as: "following",
-  //     },
-  //   },
-  //   {
-  //     $project: {
-  //       fullname: 1,
-  //       username: 1,
-  //       bio: 1,
-  //       profileImg: 1,
-  //       "followers._id": 1,
-  //       "followers.username": 1,
-  //       "followers.fullname": 1,
-  //       "followers.profileImg": 1,
-  //       "following._id": 1,
-  //       "following.username": 1,
-  //       "following.fullname": 1,
-  //       "following.profileImg": 1,
-  //     },
-  //   },
-  // ]);
-
-  // return userAgg[0];
   const userResponse = await User.findById(id);
   return await userResponse
     .populate({

@@ -85,7 +85,9 @@ function Post({
             </div>
             <div className="post__description">
               <div className="post__username">
-                <strong>{username}</strong>
+                <a href={`/${username}`} className="post__username-anchor">
+                  <strong>{username}</strong>
+                </a>
               </div>{" "}
               <div>{caption}</div>
             </div>

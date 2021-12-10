@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Avatar } from "@material-ui/core";
 import { MdArrowDropDown } from "react-icons/md";
+import FollowModal from "../followModal/FollowModal";
 import "./profile.css";
 
 const url = `http://127.0.0.1:8080`;
@@ -9,6 +10,14 @@ const url = `http://127.0.0.1:8080`;
 function Profile({ match, user, setUser }) {
   const [profile, setProfile] = React.useState({});
   const [posts, setPosts] = React.useState([]);
+
+  const [followersOpen, setFollowersOpen] = React.useState(false);
+  const followersHandleOpen = () => setFollowersOpen(true);
+  const followersHandleClose = () => setFollowersOpen(false);
+
+  const [followingOpen, setFollowingOpen] = React.useState(false);
+  const followingHandleOpen = () => setFollowingOpen(true);
+  const followingHandleClose = () => setFollowingOpen(false);
   // console.log(posts);
   React.useEffect(() => {
     console.log("hello");
@@ -151,7 +160,10 @@ function Profile({ match, user, setUser }) {
               <strong>{posts.length}</strong> Posts
             </span>
             <span>
-              <a>
+              <a
+                onClick={followersHandleOpen}
+                className="profile__followerFollowingBtn"
+              >
                 <strong>
                   {profile.followers ? profile.followers.length : "0"}
                 </strong>{" "}
@@ -159,7 +171,10 @@ function Profile({ match, user, setUser }) {
               </a>
             </span>
             <span>
-              <a>
+              <a
+                onClick={followingHandleOpen}
+                className="profile__followerFollowingBtn"
+              >
                 <strong>
                   {profile.following ? profile.following.length : "0"}
                 </strong>{" "}
@@ -182,6 +197,20 @@ function Profile({ match, user, setUser }) {
           </div>
         ))}
       </div>
+      <FollowModal
+        open={followersOpen}
+        handleOpen={followersHandleOpen}
+        handleClose={followersHandleClose}
+        userArr={profile.followers}
+        following={false}
+      />
+      <FollowModal
+        open={followingOpen}
+        handleOpen={followingHandleOpen}
+        handleClose={followingHandleClose}
+        userArr={profile.following}
+        following={true}
+      />
     </div>
   );
 }

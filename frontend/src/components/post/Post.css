@@ -77,3 +77,8 @@
   top: 5px;
   cursor: pointer;
 }
+
+.post__username-anchor {
+  text-decoration: none;
+  color: inherit;
+}
