@@ -1,0 +1,20 @@
+.popUpMember {
+  background-color: rgb(180, 180, 180);
+  display: flex;
+  padding: 6px;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+.popUpMember__avatar {
+  border: 3px solid rgb(233, 232, 232);
+}
+
+.popUpMember__username {
+  margin: 7px 0 0 10px;
+}
+
+.popUpMember__usernameLink {
+  color: black;
+  text-decoration: none;
+}

@@ -78,6 +78,7 @@ function App() {
                 posts={posts}
                 setAuthenticated={setAuthenticated}
                 setUser={setUser}
+                user={user}
               />
             )}
           />

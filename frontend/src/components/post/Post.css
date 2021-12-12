@@ -19,6 +19,7 @@
   width: 500px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .post__img {
@@ -29,8 +30,16 @@
   width: 300px;
 }
 
-.post__avatar,
-.post__description div {
+.post__description {
+  display: flex;
+}
+
+.post__description {
+  display: flex;
+  align-items: center;
+}
+
+.post__avatar {
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
@@ -81,4 +90,31 @@
 .post__username-anchor {
   text-decoration: none;
   color: inherit;
+  color: white;
+}
+
+.post__userInfoBox {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.post__userInfo {
+  display: flex;
+  padding: 0 20px;
+  justify-content: center;
+}
+
+.post__likeBox {
+  margin-right: 20px;
+  min-width: 50px;
+}
+
+.post__likeIcon,
+.post__likeCount-anchor {
+  cursor: pointer;
+}
+
+.post__likeCount {
+  display: flex;
+  justify-content: center;
 }

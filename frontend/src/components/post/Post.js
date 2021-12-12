@@ -1,6 +1,9 @@
 import React from "react";
+import PopUpModal from "../popUpModal/PopUpModal";
 import Avatar from "@material-ui/core/Avatar";
 import { send } from "react-icons-kit/fa/send";
+import { thumbsUp } from "react-icons-kit/feather/thumbsUp";
+import { ic_thumb_up } from "react-icons-kit/md/ic_thumb_up";
 import Icon from "react-icons-kit";
 import "./Post.css";
 
@@ -17,9 +20,20 @@ function Post({
   comments,
   likes,
   postId,
+  user,
 }) {
   const [newComment, setNewComment] = React.useState("");
-  const [allComment, dispatch] = React.useReducer(reducer, comments);
+  const [likesArr, setLikesArr] = React.useState(likes || []);
+
+  const [LikesArrModalOpen, setLikesArrModalOpen] = React.useState(false);
+  const likesArrModalHandleOpen = () => setLikesArrModalOpen(true);
+  const likesArrModalHandleClose = () => setLikesArrModalOpen(false);
+
+  const [allComment, dispatch] = React.useReducer(
+    reducer,
+    comments ? comments : []
+  );
+
   const commentForm = React.useRef();
 
   function reducer(allComments, newComment) {
@@ -62,6 +76,36 @@ function Post({
     }
   }
 
+  async function likePost() {
+    try {
+      const res = await axios.patch("/posts/like", {
+        postId,
+      });
+      console.log(res.data.data);
+      setLikesArr(res.data.data.post.likes);
+    } catch (error) {
+      console.log(error);
+      if (error.response) {
+        console.log("hello");
+        console.log(error.response);
+        // Request made and server responded
+        // console.log(error.response.data);
+        // console.log(error.response.status);
+        // console.log(error.response.headers);
+        alert(
+          `Error (${error.response.status}):\n${error.response.data.error}`
+        );
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.log("response not recieved from server");
+        console.log(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        alert("Error", error.message);
+      }
+    }
+  }
+
   return (
     <div
       className="post"
@@ -76,20 +120,50 @@ function Post({
 
         <div className="post__rightContainer">
           <div className="post__userInfo">
-            <div className="post__avatar">
-              <Avatar
-                alt={username}
-                className="post__avatar"
-                src={url + "/" + profileImg}
-              />
-            </div>
-            <div className="post__description">
-              <div className="post__username">
-                <a href={`/${username}`} className="post__username-anchor">
-                  <strong>{username}</strong>
-                </a>
-              </div>{" "}
-              <div>{caption}</div>
+            <div className="post__userInfoBox">
+              <div className="post__avatar">
+                <Avatar
+                  alt={username}
+                  className="post__avatar"
+                  src={url + "/" + profileImg}
+                />
+              </div>
+              <div className="post__description">
+                <div className="post__likeBox">
+                  <Icon
+                    className="post__likeIcon"
+                    icon={
+                      likesArr && likesArr.some((el) => el._id === user._id)
+                        ? ic_thumb_up
+                        : thumbsUp
+                    }
+                    style={
+                      likesArr && likesArr.some((el) => el._id === user._id)
+                        ? { color: "white" }
+                        : {}
+                    }
+                    size={30}
+                    onClick={likePost}
+                  />
+                  <div className="post__likeCount">
+                    <a
+                      role="button"
+                      className="post__likeCount-anchor"
+                      onClick={() => setLikesArrModalOpen("true")}
+                    >
+                      {likesArr.length} likes
+                    </a>
+                  </div>
+                </div>
+                <div className="post__username">
+                  <span>
+                    <a href={`/${username}`} className="post__username-anchor">
+                      <strong>{username}</strong>
+                    </a>
+                  </span>{" "}
+                  <span>{caption}</span>
+                </div>
+              </div>
             </div>
           </div>
           <div className="post__commentBox">
@@ -127,12 +201,20 @@ function Post({
 
             <div className="post__comments">
               {allComment.map((el) => (
-                <Comment comment={el} />
+                <Comment key={el._id} comment={el} />
               ))}
             </div>
           </div>
         </div>
       </div>
+
+      <PopUpModal
+        open={LikesArrModalOpen}
+        handleOpen={likesArrModalHandleOpen}
+        handleClose={likesArrModalHandleClose}
+        userArr={likesArr}
+        title="Likes"
+      />
     </div>
   );
 }

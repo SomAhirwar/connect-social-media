@@ -12,6 +12,7 @@ function Header({
   uploadFormRef = { uploadFormRef },
 }) {
   const history = useHistory();
+
   async function logout() {
     const res = await axios.get("/user/logout");
     setAuthenticated(false);
@@ -25,10 +26,12 @@ function Header({
   return (
     <div className="app__header">
       <div className="app__headerContainer">
-        <img
-          className="app__headerImg"
-          src={`${process.env.PUBLIC_URL}/logo.png`}
-        ></img>
+        <a href="/">
+          <img
+            className="app__headerImg"
+            src={`${process.env.PUBLIC_URL}/logo.png`}
+          ></img>
+        </a>
 
         <ul className="app__headerList">
           <li className="app__headerListItem">

@@ -11,6 +11,7 @@ function Home({
   passwordSetState,
   setAuthenticated,
   setUser,
+  user,
 }) {
   return (
     <>
@@ -25,6 +26,7 @@ function Home({
             comments={post.comments}
             likes={post.likes}
             postId={post._id}
+            user={user}
           />
         ))
       ) : (

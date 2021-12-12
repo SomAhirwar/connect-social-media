@@ -90,7 +90,11 @@ exports.like = async (req, res) => {
     if (!post) throw new Error("Post not exists");
 
     //if user is not already liked the post, then like it, else unlike post
-    if (!post.likes.includes(user)) {
+    if (
+      !post.likes.some((el) => {
+        return el._id.equals(user); //This is how we compare two ids of mongoose doc
+      })
+    ) {
       post = await Posts.findByIdAndUpdate(
         postId,
         {
@@ -115,6 +119,7 @@ exports.like = async (req, res) => {
       },
     });
   } catch (err) {
+    console.log(err.message);
     res.status(400).json({
       status: "failed",
       message: err.message,
