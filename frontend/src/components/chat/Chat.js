@@ -8,7 +8,7 @@ import Conversation from "../conversation/Conversation";
 import Message from "../message/Message";
 import "./Chat.css";
 
-function Chat({ user }) {
+function Chat({ user, friend }) {
   const [message, setMessage] = React.useState("");
   const [conversations, setConversations] = React.useState([]);
   const [currConversationUser, setCurrConversationUser] = React.useState({});

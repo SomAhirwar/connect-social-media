@@ -34,7 +34,9 @@
 
 .chat__leftBoxDown {
   height: calc(80vh - 60px);
-  overflow: scroll;
+  overflow: auto;
+  padding: 0 3px;
+  border-right: 1px solid lightgray;
 }
 
 .chat__rightBox {

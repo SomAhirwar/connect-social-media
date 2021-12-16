@@ -53,16 +53,16 @@ function Conversation({
         setCurrConversation(conversation);
         document
           .querySelectorAll(".conversation")
-          .forEach((el) => (el.style.backgroundColor = "white"));
-        el.target.closest(".conversation").style.backgroundColor = "lightgray";
+          .forEach((el) => (el.style.backgroundColor = "gray"));
+        el.target.closest(".conversation").style.backgroundColor = "black";
       }}
     >
       <Avatar
-        src={friend.profileImg ? friend.profileImg : ""}
+        src={friend && friend.profileImg ? friend.profileImg : ""}
         alt="image"
         className="conversation__image"
       />
-      <p className="conversation__name">{friend.username}</p>
+      <p className="conversation__name">{friend ? friend.username : ""}</p>
     </div>
   );
 }
